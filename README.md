@@ -30,7 +30,7 @@ Your IP, is yours to keep, the information provided here is allowing you to exec
 !(https://github.com/yodobrin/Hyper-Drive/issues/1#issue-419195227)
 
 ## Physical Overview
-!(https://github.com/yodobrin/Hyper-Drive/issues/2#issue-419195269)
+!(https://user-images.githubusercontent.com/37622785/54086868-25af3a80-4356-11e9-9277-77d87d53c8c9.jpg)
 
 ### Execution Notebook
 Hosted on a dsvm (small scale - dependent on the number of concurrent users), the notebook leverage azureml sdk to facilitate experiments, compute and jobs. The notebook also uses few functions created in specific module.
