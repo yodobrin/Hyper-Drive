@@ -13,13 +13,13 @@ Your IP, is yours to keep, the information provided here is allowing you to exec
 * Does your code accept input as files?
 * Consider changing it to accept input as queue
 * Do you have specific docker container ?
-** Either public or private - the service supports both
-** If you use custom weights, or just want to avoid downloading runtime libraries, weights and other artifacts use an image
+  * Either public or private - the service supports both
+  * If you use custom weights, or just want to avoid downloading runtime libraries, weights and other artifacts use an image
 * Do you use fileshare to produce your results?
-** Don’t, it is better to leverage blob as it support much higher concurrency 
+  * Don’t, it is better to leverage blob as it support much higher concurrency 
 * Make sure you submit a request for quota, without sufficient quota, you will not be able to spin multiple nodes
 * Familiar yourself with Azure Machine Learning Service this document refer to 'compute' 'experiment' 'job' & workspace throughout, here is a single line description:
-** Compute - represent the physical node(s) and cluster(s)
-** Experiment - logical container of your current work
-** Job - single execution, in this document it would run on a single node
-** Workspace - service hosting all the jobs, experiments, compute and other components
+  * Compute - represent the physical node(s) and cluster(s)
+  * Experiment - logical container of your current work
+  * Job - single execution, in this document it would run on a single node
+  * Workspace - service hosting all the jobs, experiments, compute and other components
