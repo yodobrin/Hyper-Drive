@@ -27,11 +27,10 @@ Your IP, is yours to keep, the information provided here is allowing you to exec
 # The Architecture
 
 ## Logical Overview
-!(https://github.com/yodobrin/Hyper-Drive/issues/1#issue-419195227)
+
 ![High Level Architecture](https://user-images.githubusercontent.com/37622785/54086849-13350100-4356-11e9-961c-8922b8f373d6.jpg)
 
 ## Physical Overview
-![alt text] (https://user-images.githubusercontent.com/37622785/54086868-25af3a80-4356-11e9-9277-77d87d53c8c9.jpg " Physical overview")
 
 ![High Level Architecture](https://user-images.githubusercontent.com/37622785/54086868-25af3a80-4356-11e9-9277-77d87d53c8c9.jpg)
 
