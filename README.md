@@ -37,20 +37,21 @@ Your IP, is yours to keep, the information provided here is allowing you to exec
 ### Execution Notebook
 Hosted on a dsvm (small scale - dependent on the number of concurrent users), the notebook leverage azureml sdk to facilitate experiments, compute and jobs. The notebook also uses few functions created in specific module.
 #### The notebook flow will: 
-	1. Use or create a workspace, 
-	2. Name an experiment, 
-	3. Create or obtain required compute,
-	4. Configure required resources for the experiment (image, input, output etc.)
-	5. Create an estimator and submit the estimator via hyperdrive 
++ Use or create a workspace, 
++ Name an experiment, 
++ Create or obtain required compute,
++ Configure required resources for the experiment (image, input, output etc.)
++ Create an estimator and submit the estimator via hyperdrive 
 #### AML Service
 PaaS service deployed in the region as the input blob. The service host all the required components, such as compute, experiments and jobs
 
 #### Process Queues
 Used to enable parallel and even distribution between the working nodes.
 There are 3 queues: 
-	1. Input - url or path to the video
-	2. Failures - the failed video and the exception as captured from the process
-	3. Success - per video, a set of measurement captured during the run, currently only capturing the process elapsed time
++ Input - url or path to the video
++ Failures - the failed video and the exception as captured from the process
++ Success - per video, a set of measurement captured during the run, currently only capturing the process elapsed time
+
 **Output blob** - specific container and directories are used to save the products of the scripts
 
 **Registry** - the image to be used by the working nodes
@@ -58,4 +59,9 @@ There are 3 queues:
 **Media Files** - the container in which the video files are hosted
 
 **Compute** - an array of clusters, each up to 100 nodes with the type of VMs as required by the actual script
+
+# What is not covered
+* How is the image created?
+* What is the internal script which perform the actual work? 
+	* In this repo only an example script is provided
 
