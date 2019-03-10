@@ -64,4 +64,6 @@ There are 3 queues:
 * How is the image created?
 * What is the internal script which perform the actual work? 
 	* In this repo only an example script is provided
+* Setting up the DSVM with Jupyter (with required conda packages)
+	* I might add another article covering it
 
