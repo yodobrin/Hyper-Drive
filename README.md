@@ -32,7 +32,7 @@ Your IP, is yours to keep, the information provided here is allowing you to exec
 ## Physical Overview
 ![alt text] (https://user-images.githubusercontent.com/37622785/54086868-25af3a80-4356-11e9-9277-77d87d53c8c9.jpg " Physical overview")
 
-![High Level Architecture](https://user-images.githubusercontent.com/37622785/50393654-4b1da680-0760-11e9-8f9b-9a4a26afce3a.png)
+![High Level Architecture](https://user-images.githubusercontent.com/37622785/54086868-25af3a80-4356-11e9-9277-77d87d53c8c9.jpg)
 
 ### Execution Notebook
 Hosted on a dsvm (small scale - dependent on the number of concurrent users), the notebook leverage azureml sdk to facilitate experiments, compute and jobs. The notebook also uses few functions created in specific module.
