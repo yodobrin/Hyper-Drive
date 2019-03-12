@@ -60,7 +60,7 @@ There are 3 queues:
 
 **Compute** - an array of clusters, each up to 100 nodes with the type of VMs as required by the actual script
 
-**DSVM** - Data Sciences Virtual Machine, preconfigured VM with multiple tools used by Data Scientist
+**DSVM** - Data Science Virtual Machine, preconfigured VM with multiple tools used by Data Scientist
 
 # What is not covered
 * How is the image created?
