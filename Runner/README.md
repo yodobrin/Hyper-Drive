@@ -54,3 +54,6 @@ provide few abstract functions over the azure storage queue [SDK](https://azure-
 
 #### my_activate
 a sample implementation of the NodeRunner class. 
+
+#### dummy
+in blob storage there are no real directories, thus if one wish to pass specific folder as mount point, there needs to be a file within that location. the experiment_configuration would address this by coping a dummy txt file to the designated location.
