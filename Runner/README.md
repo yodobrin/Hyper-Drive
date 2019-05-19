@@ -16,7 +16,7 @@ and then run this sample command line:
 
 To be clear, running this, will create resources in your subscription. it would create an experiment, compute clusters, folders within the specified storage account(s), queues, fill the queues with the lines from the csv, AND commence the experiment on all available clusters. 
 
-
+![High Level Overview](https://user-images.githubusercontent.com/37622785/57983123-fc4a1380-7a56-11e9-8bd9-3f97a68fc025.png)
 
 
 ## What is provided
