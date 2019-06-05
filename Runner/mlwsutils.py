@@ -59,13 +59,14 @@ def create_script_parm(config,init_file,ds):
 
 def create_private_ds(config, ws):
 
-    prvt_ds_name = config['experiment']['storage_account'] 
+    prvt_ds_name = config['experiment']['data_store_name']      
+    prvt_ds_account_name = config['experiment']['storage_account'] 
     prvt_ds_container_name = config['experiment']['storage_container'] 
     prvt_ds_key = config['experiment']['storage_account_key'] 
     prvt_ds = Datastore.register_azure_blob_container(workspace=ws, 
                                              datastore_name=prvt_ds_name, 
                                              container_name=prvt_ds_container_name,
-                                             account_name=prvt_ds_name, 
+                                             account_name=prvt_ds_account_name, 
                                              account_key=prvt_ds_key,
                                              create_if_not_exists=True)
     return prvt_ds
