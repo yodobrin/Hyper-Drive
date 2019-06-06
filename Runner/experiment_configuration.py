@@ -22,6 +22,7 @@ class ExperimentConfiguration():
         print('initliaze experiment configuration')
         self.ini_file_ml = args_tuple.init_file_ml
         self.ini_file_func = args_tuple.init_file_func
+        self.clear_queues = args_tuple.clear_queues
         self.read_conf()
         print('read ini files for ml wrapper and activation function')
         
@@ -174,7 +175,8 @@ class ExperimentConfiguration():
         self.create_experiment()
         self.rc = mlspace.create_run_configuration(self.config)        
         self.obtain_queues_names()
-        #self.reset_queues()
+        if self.clear_queues == 'Yes':
+            self.reset_queues()
         #self.create_queues()
         # use either a local method to load messages to main queue. If you installed/deployed an azure function to handle, can leverage that as well.
         # see https://github.com/yodobrin/csv2q
@@ -238,7 +240,9 @@ def setup():
     parser.add_argument("-ini_ml", "--init_file_ml", action="store", default='init_ml.ini',
                     help="an init file holding configuration")
     parser.add_argument("-ini_func", "--init_file_func", action="store", default='init.ini',
-                    help="an init file holding configuration")                                                        
+                    help="an init file holding configuration")
+    parser.add_argument("-re_q", "--clear_queues", action="store", default='Yes',
+                    help="input-output-error queues clear")  
     args = parser.parse_args()
     print(args)
     return args
