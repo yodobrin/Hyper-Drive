@@ -1,7 +1,7 @@
 import argparse
 from configparser import ConfigParser
 import mlque as qutils
-from azure.storage.queue import QueueService
+from azure.storage.queue import QueueService,QueueMessageFormat
 from time import gmtime, strftime, sleep
 import time
 import traceback
@@ -44,6 +44,7 @@ class NodeRunner():
         self.success_queue = '{0}-success'.format(self.input_queue)
         self.fail_queue = '{0}-fail'.format(self.input_queue)
         self.queue_service = QueueService(account_name=sa, account_key=sakey)
+        self.queue_service.decode_function = QueueMessageFormat.text_base64decode
 
     def run_on_node(self,arg_per_node):
         print("Start processing !!! ")
@@ -52,14 +53,13 @@ class NodeRunner():
             # the call returns a list, as of now, the batch size is 1
             if len(messages) > 0:
                 message = messages[0]
-                line = message.content
-                # print(line)
-                csv_line = self.read_csv_line(line)
-
+                line = message.content                               
                 # delete the message from the qeue
 
                 self.queue_service.delete_message(self.input_queue, message.id, message.pop_receipt)
                 try:
+                    print(line)
+                    csv_line = self.read_csv_line(line)
                     btime = datetime.now()
                     row_id = csv_line[0]
                     self.send_to_loop_method(arg_per_node,csv_line)                    
