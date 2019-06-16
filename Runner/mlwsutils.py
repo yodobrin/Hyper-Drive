@@ -51,9 +51,8 @@ def create_script_parm(config,init_file,ds):
 
     script_params = {
     '--init_file' : init_file,
-    '--video_path': out_mount, 
-    '--path_for_output_folder': work_mount, 
-    '--resourcs_path': resources_mount 
+    '--video_path': work_mount, 
+    '--path_for_output_folder': out_mount     
     }
     return script_params
 
