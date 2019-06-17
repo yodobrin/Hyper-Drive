@@ -26,6 +26,7 @@ class ExperimentConfiguration():
         self.fill_queue = args_tuple.csv_to_queue_op
         self.read_conf()        
         self.update_func_ini()
+        
         print('read ini files for ml wrapper and updated activation function ini file')
         
    
