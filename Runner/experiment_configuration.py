@@ -25,8 +25,8 @@ class ExperimentConfiguration():
         self.clear_queues = args_tuple.clear_queues
         self.fill_queue = args_tuple.csv_to_queue_op
         self.read_conf()        
-        self.update_func_ini()
-        
+        #self.update_func_ini()
+
         print('read ini files for ml wrapper and updated activation function ini file')
         
    
@@ -38,12 +38,12 @@ class ExperimentConfiguration():
         self.config_func = ConfigParser()
         self.config_func.read(self.ini_file_func)
 
-    def update_func_ini(self):
-        self.config_func.set("queue_details","input_queue",self.config['queue_details']['input_queue'])
-        self.config_func.set("queue_details","storage_account",self.config['queue_details']['storage_account'])
-        self.config_func.set("queue_details","storage_account_key",self.config['queue_details']['storage_account_key'])
-        with open(self.ini_file_func,"w") as f:
-            self.config_func.write(f)
+    # def update_func_ini(self):
+    #     self.config_func.set("queue_details","input_queue",self.config['queue_details']['input_queue'])
+    #     self.config_func.set("queue_details","storage_account",self.config['queue_details']['storage_account'])
+    #     self.config_func.set("queue_details","storage_account_key",self.config['queue_details']['storage_account_key'])
+    #     with open(self.ini_file_func,"w") as f:
+    #         self.config_func.write(f)
 
     """     Compute section       """
 
@@ -201,7 +201,7 @@ class ExperimentConfiguration():
             print(name, ct.type, ct.provisioning_state)
         self.private_ds = mlspace.create_private_ds(self.config,self.ws)
         self.script_params = self.create_script_params() 
-        self.entry_script = self.config_func['script']['entry_script'] 
+        self.entry_script = self.config['script']['entry_script'] 
         self.project_folder = self.config['experiment']['project_folder']
         print('experiment setup phase completed:')
         print(self.script_params)        

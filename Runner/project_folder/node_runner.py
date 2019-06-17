@@ -37,9 +37,9 @@ class NodeRunner():
         self.config.read(self.ini_file)
 
     def obtain_queues_names(self):            
-        inq = self.config["queue_details"]["input_queue"]
-        sa = self.config["queue_details"]["storage_account"]
-        sakey = self.config["queue_details"]["storage_account_key"]       
+        inq = self.cli_args.input_queue_name # self.config["queue_details"]["input_queue"]
+        sa = self.cli_args.input_queue_storage # config["queue_details"]["storage_account"]
+        sakey = self.cli_args.input_queue_storage_key # config["queue_details"]["storage_account_key"]       
         self.input_queue = inq 
         self.success_queue = '{0}-success'.format(self.input_queue)
         self.fail_queue = '{0}-fail'.format(self.input_queue)
@@ -83,6 +83,13 @@ def setup():
                     help="path to working directory")                        
     parser.add_argument("-outfldr", "--path_for_output_folder", action="store", default='N/A',
                     help="path for output folder")   
+    # Queue information
+    parser.add_argument("-qname", "--input_queue_name", action="store", default='N/A',
+                    help="Input Queue name")                       
+    parser.add_argument("-qsa", "--input_queue_storage", action="store", default='N/A',
+                    help="Input Queue stroage account name")
+    parser.add_argument("-qsakey", "--input_queue_storage_key", action="store", default='N/A',
+                    help="Input Queue stroage account name key")                                                               
     # future use: parser.add_argument("-resourcefldr", "--resourcs_path", action="store", default='N/A',
     #                 help="path for output folder")                                                                              
     args = parser.parse_args()

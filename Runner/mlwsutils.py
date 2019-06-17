@@ -43,7 +43,12 @@ def create_mount(ds,dummy,path):
 def create_script_parm(config,init_file,ds):
     out_path = config['experiment']['output_directory']
     work_path = config['experiment']['working_directory']
-    resources_path = config['experiment']['resources_directory']
+    # queue details
+    inq = config["queue_details"]["input_queue"]
+    sa = config["queue_details"]["storage_account"]
+    sakey = config["queue_details"]["storage_account_key"]       
+
+    # future use: resources_path = config['experiment']['resources_directory']
     dummy = config['experiment']['dummy_file']
     out_mount = create_mount(ds,dummy,out_path)
     work_mount = create_mount(ds,dummy,work_path)
@@ -52,7 +57,10 @@ def create_script_parm(config,init_file,ds):
     script_params = {
     '--init_file' : init_file,
     '--video_path': work_mount, 
-    '--path_for_output_folder': out_mount     
+    '--path_for_output_folder': out_mount,
+    '--input_queue_name':inq,
+    '--input_queue_storage':sa,
+    '--input_queue_storage_key':sakey     
     }
     return script_params
 
