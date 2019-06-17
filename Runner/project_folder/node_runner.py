@@ -22,7 +22,7 @@ class NodeRunner():
         return args_sample
 
     def read_csv_line(self,line):
-        csv_line = line.strip().split(',')
+        csv_line = line.strip().split('\t')
         return csv_line
     
     def set_loop_method(self,method):
@@ -56,7 +56,6 @@ class NodeRunner():
                 line = message.content
                 row_id = message.id
                 # delete the message from the qeue
-
                 self.queue_service.delete_message(self.input_queue, message.id, message.pop_receipt)
                 try:
                     print(line)

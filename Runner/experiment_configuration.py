@@ -129,6 +129,7 @@ class ExperimentConfiguration():
         dest_folder = 'split'
         blob_service = BlockBlobService(account_name=sa_name, account_key=sa_key)
         csvfile = open(csv_file, 'r').readlines()
+        self.total_rows = len(csvfile)
         for i in range(len(csvfile)):
             target_filename = f'{split_file_prefix}_{filename}.csv'
             target_filepath = os.path.join(dest_folder, target_filename)
@@ -141,6 +142,7 @@ class ExperimentConfiguration():
         # create message to the request queue
         for msg in messages:
             self.queue_service.put_message(request_q,msg)
+            print(msg)
         
 
     def csv_to_queue(self):
@@ -187,7 +189,8 @@ class ExperimentConfiguration():
         #self.create_queues()
         # use either a local method to load messages to main queue. If you installed/deployed an azure function to handle, can leverage that as well.
         # see https://github.com/yodobrin/csv2q
-        if self.fail_queue == 'local':
+        print(self.fill_queue)
+        if self.fill_queue == 'local':
             self.csv_to_queue()
         else : 
             self.csv_to_queue_via_func()
@@ -253,7 +256,7 @@ def setup():
                     help="an init file holding configuration")
     parser.add_argument("-re_q", "--clear_queues", action="store", default='Yes',
                     help="input-output-error queues clear")  
-    parser.add_argument("-csv_2_q", "--csv_to_queue_op", action="store", default='local',
+    parser.add_argument("-csv_2_q", "--csv_to_queue_op", action="store", default='func',
                     help="two options: local/func")  
 
     args = parser.parse_args()
