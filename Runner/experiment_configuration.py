@@ -1,7 +1,7 @@
 import argparse
 from configparser import ConfigParser
 import mlclusters as clusterutils
-import mlque as qutils
+import project_folder.mlque as qutils
 import mlwsutils as mlspace
 from azure.storage.queue import QueueService,QueueMessageFormat
 from azure.storage.blob import BlockBlobService
@@ -23,8 +23,9 @@ class ExperimentConfiguration():
         self.ini_file_ml = args_tuple.init_file_ml
         self.ini_file_func = args_tuple.init_file_func
         self.clear_queues = args_tuple.clear_queues
-        self.read_conf()
-        print('read ini files for ml wrapper and activation function')
+        self.read_conf()        
+        self.update_func_ini()
+        print('read ini files for ml wrapper and updated activation function ini file')
         
    
    # reads the two ini files
@@ -35,7 +36,12 @@ class ExperimentConfiguration():
         self.config_func = ConfigParser()
         self.config_func.read(self.ini_file_func)
 
-
+    def update_func_ini(self):
+        self.config_func.set("queue_details","input_queue",self.config['queue_details']['input_queue'])
+        self.config_func.set("queue_details","storage_account",self.config['queue_details']['storage_account'])
+        self.config_func.set("queue_details","storage_account_key",self.config['queue_details']['storage_account_key'])
+        with open(self.ini_file_func,"w") as f:
+            self.config_func.write(f)
 
     """     Compute section       """
 

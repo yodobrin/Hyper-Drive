@@ -47,7 +47,7 @@ class NodeRunner():
         self.queue_service.decode_function = QueueMessageFormat.text_base64decode
 
     def run_on_node(self,arg_per_node):
-        print("Start processing !!! ")
+        print("Start processing from queue : {0}".format(self.input_queue))
         while qutils.getQSzie(self.queue_service, self.input_queue) > 0:
             messages = self.queue_service.get_messages(self.input_queue, num_messages=1, visibility_timeout=40)
             # the call returns a list, as of now, the batch size is 1
@@ -83,8 +83,8 @@ def setup():
                     help="path to working directory")                        
     parser.add_argument("-outfldr", "--path_for_output_folder", action="store", default='N/A',
                     help="path for output folder")   
-    parser.add_argument("-resourcefldr", "--resourcs_path", action="store", default='N/A',
-                    help="path for output folder")                                                                              
+    # future use: parser.add_argument("-resourcefldr", "--resourcs_path", action="store", default='N/A',
+    #                 help="path for output folder")                                                                              
     args = parser.parse_args()
     return args
 

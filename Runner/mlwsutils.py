@@ -47,7 +47,7 @@ def create_script_parm(config,init_file,ds):
     dummy = config['experiment']['dummy_file']
     out_mount = create_mount(ds,dummy,out_path)
     work_mount = create_mount(ds,dummy,work_path)
-    resources_mount = create_mount(ds,dummy,resources_path)
+    # future use: resources_mount = create_mount(ds,dummy,resources_path)
 
     script_params = {
     '--init_file' : init_file,
