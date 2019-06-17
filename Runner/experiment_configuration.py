@@ -229,18 +229,18 @@ class ExperimentConfiguration():
         
         self.pre_activation()        
         # experiment submition
-        # b_submit_ts = datetime.now()
-        # self.submit_experiments()
-        # a_submit_ts = datetime.now()
-        # # wait for the experiment to complete
-        # self.post_activation()
-        # exp_end_ts = datetime.now() 
-        # exp_total_time = exp_end_ts - a_submit_ts
-        # submit_exp = a_submit_ts - b_submit_ts
-        # print('submit experiments: {0} seconds'.format(submit_exp.seconds))
-        # print('experiment completion {0} seconds'.format(exp_total_time.seconds))
-        # total_run_time = exp_end_ts - b_submit_ts
-        # print('Total time (setup + run) {0} seconds'.format(total_run_time.seconds))
+        b_submit_ts = datetime.now()
+        self.submit_experiments()
+        a_submit_ts = datetime.now()
+        # wait for the experiment to complete
+        self.post_activation()
+        exp_end_ts = datetime.now() 
+        exp_total_time = exp_end_ts - a_submit_ts
+        submit_exp = a_submit_ts - b_submit_ts
+        print('submit experiments: {0} seconds'.format(submit_exp.seconds))
+        print('experiment completion {0} seconds'.format(exp_total_time.seconds))
+        total_run_time = exp_end_ts - b_submit_ts
+        print('Total time (setup + run) {0} seconds'.format(total_run_time.seconds))
 
 
 # reads command line params
@@ -250,7 +250,7 @@ def setup():
                     help="an init file holding configuration")
     parser.add_argument("-ini_func", "--init_file_func", action="store", default='init.ini',
                     help="an init file holding configuration")
-    parser.add_argument("-re_q", "--clear_queues", action="store", default='No',
+    parser.add_argument("-re_q", "--clear_queues", action="store", default='Yes',
                     help="input-output-error queues clear")  
     parser.add_argument("-csv_2_q", "--csv_to_queue_op", action="store", default='local',
                     help="two options: local/func")  
