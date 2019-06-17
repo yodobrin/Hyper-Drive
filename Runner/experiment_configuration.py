@@ -170,8 +170,7 @@ class ExperimentConfiguration():
     """
 
     def pre_activation(self):
-        self.create_workspace()
-        # self.ws = mlspace.create_workspace()
+        self.create_workspace()        
         self.create_experiment()
         self.rc = mlspace.create_run_configuration(self.config)        
         self.obtain_queues_names()
