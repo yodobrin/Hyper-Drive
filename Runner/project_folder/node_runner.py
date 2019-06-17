@@ -53,7 +53,8 @@ class NodeRunner():
             # the call returns a list, as of now, the batch size is 1
             if len(messages) > 0:
                 message = messages[0]
-                line = message.content                               
+                line = message.content      
+                row_id = message.id                         
                 # delete the message from the qeue
 
                 self.queue_service.delete_message(self.input_queue, message.id, message.pop_receipt)
