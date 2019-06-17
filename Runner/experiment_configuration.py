@@ -130,6 +130,7 @@ class ExperimentConfiguration():
         blob_service = BlockBlobService(account_name=sa_name, account_key=sa_key)
         csvfile = open(csv_file, 'r').readlines()
         self.total_rows = len(csvfile)
+        self.no_more_rows_ts = None
         for i in range(len(csvfile)):
             target_filename = f'{split_file_prefix}_{filename}.csv'
             target_filepath = os.path.join(dest_folder, target_filename)
