@@ -83,6 +83,8 @@ def setup():
                     help="path to working directory")                        
     parser.add_argument("-outfldr", "--path_for_output_folder", action="store", default='N/A',
                     help="path for output folder")   
+    parser.add_argument("-resourcefldr", "--resource_path", action="store", default='N/A',
+                     help="path for output folder")                                                                              
     # Queue information
     parser.add_argument("-qname", "--input_queue_name", action="store", default='N/A',
                     help="Input Queue name")                       
@@ -90,8 +92,7 @@ def setup():
                     help="Input Queue stroage account name")
     parser.add_argument("-qsakey", "--input_queue_storage_key", action="store", default='N/A',
                     help="Input Queue stroage account name key")                                                               
-    # future use: parser.add_argument("-resourcefldr", "--resourcs_path", action="store", default='N/A',
-    #                 help="path for output folder")                                                                              
+
     args = parser.parse_args()
     return args
 
