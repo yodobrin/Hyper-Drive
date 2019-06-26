@@ -1,3 +1,12 @@
 Runner/init_ml_no_git.ini
 Runner/init_no_git.ini
 Runner/config.json
+Runner/input/corner_train_random_03_06_19.csv
+Runner/input/corner_train_random_03_06_19_30_examples.csv
+Runner/split/*
+Runner/__pycache__/*
+Runner/project_folder/__pycache__/*
+Runner/project_folder/ofir_tools/*
+Runner/project_folder/my_activate.py
+Runner/project_folder/process_data_function.py
+
