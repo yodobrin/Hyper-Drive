@@ -143,7 +143,7 @@ class ExperimentConfiguration():
         # create message to the request queue
         for msg in messages:
             self.queue_service.put_message(request_q,msg)
-            # print(msg)
+            print(msg)
         
 
     def csv_to_queue(self):
