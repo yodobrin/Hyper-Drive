@@ -15,6 +15,11 @@ Next, run this sample command:
 
 Keep in mind that running this command will create resources in your subscription. It creates an experiment, compute clusters, folders within the specified storage account(s), queues, fills the queues with the lines from the csv, AND commences the experiment on all available clusters. 
 
+### Additional Resources
+Loading large amount of messages to a queue could be a long running task as it depends on network bandwidth. The first suggestion on how to load the input queue with messages is to use a VM within the same region as your storage account in which your queues are created.
+Another option is to leverage a serverless solution with Azure function to handle this load of data.
+I've created such solution and it can be found ![here](https://github.com/yodobrin/csv2q)
+
 ![High Level Overview](https://user-images.githubusercontent.com/37622785/57983123-fc4a1380-7a56-11e9-8bd9-3f97a68fc025.png)
 
 
